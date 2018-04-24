@@ -1,4 +1,4 @@
-![abstract](img\abstract.png)
+![abstract](https://github.com/kevinid/molecule_generator/blob/master/img/abstract.png?raw=true)
 
 
 
