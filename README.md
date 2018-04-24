@@ -29,7 +29,7 @@ This repo is built using Python 2.7, and utilizes the following packages:
 - Numpy == 1.13.3
 - Scikit-learn== 0.19.1 (for the predictive model)
 
-To ease to installation process, a docker environment will be added to the repo in future release.
+To ease the installation process, a docker environment will be added to the repo in future release.
 
 ## Quick start
 
