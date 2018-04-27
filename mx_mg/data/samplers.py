@@ -2,6 +2,9 @@ import numpy as np
 import random
 from mxnet.gluon.data.sampler import Sampler
 
+
+__all__ = ['BalancedSampler']
+
 class BalancedSampler(Sampler):
 
     def __init__(self, cost, batch_size):

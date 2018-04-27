@@ -12,6 +12,8 @@ import numpy as np
 from mx_mg.data import data_struct
 
 
+__all__ = ['get_graph_from_smiles_list', 'get_mol_from_graph', 'get_mol_from_graph_list', 'get_d']
+
 def get_graph_from_smiles(smiles):
     mol = Chem.MolFromSmiles(smiles)
 
@@ -300,31 +302,3 @@ def get_mol_from_graph_list(graph_list, sanitize=True):
     return mol_list
 
 
-class ScaffoldFP(object):
-
-    def __init__(self, scaffolds):
-        if isinstance(scaffolds, str):
-            # input the directory of scaffold file
-            with open(scaffolds) as f:
-                scaffolds = [s.strip('\n').strip('\r') for s in f.readlines()]
-        else:
-            try:
-                assert isinstance(scaffolds, list)
-            except AssertionError:
-                raise TypeError
-
-        self.scaffolds = [Chem.MolFromSmiles(s) for s in scaffolds]
-        self.scaffold_fps = [Chem.RDKFingerprint(s) for s in self.scaffolds]
-
-    def get_on_bits(self, mol):
-        if isinstance(mol, str):
-            mol = Chem.MolFromSmiles(mol)
-        mol_fp = Chem.RDKFingerprint(mol)
-
-        on_bits = []
-        for i, s_fp_i in enumerate(self.scaffold_fps):
-            if DataStructs.AllProbeBitsMatch(s_fp_i, mol_fp):
-                if mol.HasSubstructMatch(self.scaffolds[i]):
-                    on_bits.append(i)
-
-        return on_bits

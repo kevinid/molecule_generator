@@ -3,6 +3,9 @@ from mxnet.autograd import Function
 import math
 
 
+__all__ = ['GraphConvFn', 'EfficientGraphConvFn', 'SegmentSumFn',
+           'squeeze', 'unsqueeze', 'logsumexp', 'kl_divergence', 'get_activation', 'log_prob']
+
 class GraphConvFn(Function):
 
     def __init__(self, A):
@@ -141,6 +144,7 @@ def logsumexp(inputs, axis=None, keepdims=False):
         outputs = nd.sum(outputs, axis=axis, keepdims=False)
     return outputs
 
+
 def kl_divergence(mu, var, nits=0.0):
     num_mols = mu.shape[0]
     loss_kl = - 0.5 * nd.sum(1 + nd.log(var + 1e-10) - mu ** 2 - var, axis=0)
@@ -155,6 +159,7 @@ def get_activation(name):
         'tanh':nd.tanh
     }
     return activation_dict[name]
+
 
 def log_prob(mu, var, x):
     if not isinstance(var, nd.NDArray):

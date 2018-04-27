@@ -3,6 +3,8 @@ import itertools
 from abc import ABCMeta
 
 
+__all__ = ['IterableDataset', 'KFold', 'Filter', 'Lambda']
+
 class IterableDataset(Dataset):
 
     __metaclass__ = ABCMeta

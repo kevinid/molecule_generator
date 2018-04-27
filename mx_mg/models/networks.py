@@ -8,6 +8,8 @@ import modules
 import functions as fn
 
 
+__all__ = ['VanillaMolGen_RNN', 'VanillaMolGen', 'CVanillaMolGen_RNN']
+
 class MoleculeGenerator(nn.Block):
 
     __metaclass__ = ABCMeta

@@ -5,6 +5,8 @@ from mxnet.gluon import nn
 import functions as fn
 
 
+__all__ = ['Linear_BN', 'GraphConv', 'Policy', 'BatchNorm']
+
 class Linear_BN(nn.Sequential):
     def __init__(self, F_in, F_out):
         super(Linear_BN, self).__init__()

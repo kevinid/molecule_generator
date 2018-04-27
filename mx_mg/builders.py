@@ -10,6 +10,8 @@ from mx_mg.data import get_mol_spec
 from mx_mg import models, data
 
 
+__all__ = ['Builder', 'Vanilla_Builder', 'Vanilla_RNN_Builder', 'CVanilla_RNN_Builder']
+
 def _decode_step(X, A, NX, NA, last_action, finished,
                  get_init, get_action,
                  random=True, n_node_types=get_mol_spec().num_atom_types,

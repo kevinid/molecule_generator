@@ -8,6 +8,8 @@ import utils
 from mx_mg.data import data_struct
 
 
+__all__ = ['MolLoader', 'MolRNNLoader', 'CMolRNNLoader']
+
 class MolLoader(DataLoader):
     """Load graph based molecule representation from SMILES"""
     def __init__(self, dataset, batch_size=10, num_workers=0,

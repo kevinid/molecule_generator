@@ -1,6 +1,8 @@
 from rdkit import Chem
 
 
+__all__ = ['MoleculeSpec', 'get_mol_spec']
+
 class MoleculeSpec(object):
 
     def __init__(self, file_name='datasets/atom_types.txt'):

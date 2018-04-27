@@ -3,6 +3,8 @@ from abc import ABCMeta, abstractmethod
 import numpy as np
 
 
+__all__ = ['Conditional', 'Delimited', 'SparseFP', 'ScaffoldFP']
+
 class Conditional(object):
 
     __metaclass__ = ABCMeta
