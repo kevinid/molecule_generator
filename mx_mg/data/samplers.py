@@ -8,7 +8,7 @@ __all__ = ['BalancedSampler']
 class BalancedSampler(Sampler):
 
     def __init__(self, cost, batch_size):
-        random.shuffle(cost)
+        # random.shuffle(cost)
         index = np.argsort(cost).tolist()
         chunk_size = int(float(len(cost))/batch_size)
         self.index = []

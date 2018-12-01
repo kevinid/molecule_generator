@@ -5,7 +5,6 @@ Containing utility functions for data processing
 import random
 from scipy import sparse
 from rdkit import Chem
-from rdkit.Chem import DataStructs
 import networkx as nx
 import numpy as np
 
