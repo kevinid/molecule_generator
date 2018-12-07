@@ -31,6 +31,7 @@ RUN pip --no-cache-dir install --upgrade pip && \
         pandas \
         scipy \
         sklearn \
+        jupyter \
         matplotlib \
         lmdb \
         PyMySQL \
@@ -75,3 +76,13 @@ RUN mkdir rdkit/build && cd rdkit/build && \
     make -j $(nproc) && \
     # make && \
     make install
+
+# ========== Configure jupyter notebook ==========
+RUN mkdir /notebooks && chmod a+rwx /notebooks
+RUN mkdir /.local && chmod a+rwx /.local
+EXPOSE 8888
+
+# ========== Configure entrypoint ==========
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
